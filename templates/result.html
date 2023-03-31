@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .result {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result">
+            {% if bmi < 18.5 %}
+            <div class="alert alert-warning">
+                <strong>Underweight:</strong> Your BMI is {{ bmi }}. You may need to gain some weight.
+            </div>
+            {% elif bmi >= 18.5 and bmi < 25 %}
+            <div class="alert alert-success">
+                <strong>Normal:</strong> Your BMI is {{ bmi }}. Your weight is healthy.
+            </div>
+            {% elif bmi >= 25 and bmi < 30 %}
+            <div class="alert alert-warning">
+                <strong>Overweight:</strong> Your BMI is {{ bmi }}. You may need to lose some weight.
+            </div>
+            {% else %}
+            <div class="alert alert-danger">
+                <strong>Obese:</strong> Your BMI is {{ bmi }}. You may need to lose a lot of weight.
+            </div>
+            {% endif %}
+            <a href="/" class="btn btn-primary">Calculate Again</a>
+        </div>
+    </div>
+</body>
+</html>
